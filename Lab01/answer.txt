@@ -1,0 +1,2 @@
+- If users choose "Cancel", Eclipse will not run the code, "Run as ->Java Application" progress will be cancelled, changes in files will not be saved unless you saved it manually
+- Tuỳ chỉnh nút Yes/No → dùng showConfirmDialog(..., JOptionPane.YES_NO_OPTION) để chỉ có Yes/No, hoặc dùng showOptionDialog(...) để tạo nút theo ý muốn như “I do/I don’t”.
