@@ -44,5 +44,38 @@ public class Cart {
 		}
 		return total;
 	}
-	
+	public void printCart() {
+	    if (qtyOrdered == 0) {
+	        System.out.println("Your cart is empty.");
+	        return;
+	    }
+	    System.out.println("\n***** CART CONTENT *****");
+	    for (int i = 0; i < itemsOrdered.size(); i++) {
+	        DigitalVideoDisc dvd = itemsOrdered.get(i);
+	        System.out.println((i + 1) + ". " + dvd.getTitle() 
+	            + " - Category: " + dvd.getCategory() 
+	            + " - Cost: " + dvd.getCost());
+	    }
+	    System.out.println("Total cost: " + totalCost());
+	    System.out.println("************************");
+	}
+
+	public void removeDVDbyNumber(int number) {
+	    if (qtyOrdered == 0) {
+	        System.out.println("Your cart is empty.");
+	        return;
+	    }
+	    if (number < 1 || number > qtyOrdered) {
+	        System.out.println("Invalid number.");
+	        return;
+	    }
+	    DigitalVideoDisc removed = itemsOrdered.remove(number - 1);
+	    qtyOrdered--;
+	    System.out.println("Removed: " + removed.getTitle());
+	}
+
+	public int getQtyOrdered() {
+	    return qtyOrdered;
+	}
+
 }
