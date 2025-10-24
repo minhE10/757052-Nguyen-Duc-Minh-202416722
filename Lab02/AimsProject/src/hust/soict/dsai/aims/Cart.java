@@ -121,6 +121,7 @@ public class Cart {
 			System.out.println("Not found");
 		}
 	}
+	//already done search 
 	public void searchByTitle(String s) {
 		if (qtyOrdered==0) {
 			 System.out.println("Your cart is empty.");
