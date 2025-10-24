@@ -8,7 +8,6 @@ as the swap function swap 2 copy of int variable, so it just swap 2 copy, not 2 
 
 ●After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
 
-as this method receive non-primitive parameters, it create 2 copy of 2 variables with the same direction, and they exchange values by swap it directly in the object, so they changed
-
+this change the an attribute of an object with the same reference to the original one 
 
 
