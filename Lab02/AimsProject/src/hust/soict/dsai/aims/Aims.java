@@ -54,7 +54,7 @@ public class Aims {
             break;
 
             case 2:
-                cart.printCart();
+                cart.print();
                 if (cart.getQtyOrdered() > 0) { 
                     System.out.print("Enter the number of the DVD to remove from your cart: ");
                     int removeChoice = scanner.nextInt();
@@ -62,7 +62,7 @@ public class Aims {
                 }
                 break;
             case 3:
-                cart.printCart();
+                cart.print();
                 break;
             case 4:
                 System.out.println("Exiting the application.");

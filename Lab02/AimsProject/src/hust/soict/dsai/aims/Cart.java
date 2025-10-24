@@ -69,12 +69,13 @@ public class Cart {
 		}
 		return total;
 	}
-	public void printCart() {
+	
+	public void print() {
 	    if (qtyOrdered == 0) {
 	        System.out.println("Your cart is empty.");
 	        return;
 	    }
-	    System.out.println("\n***** CART CONTENT *****");
+	    System.out.println("\n***********CART**********");
 	    for (int i = 0; i < itemsOrdered.size(); i++) {
 	        DigitalVideoDisc dvd = itemsOrdered.get(i);
 	        System.out.println((i + 1) + ". " + dvd.getTitle() 
@@ -102,5 +103,40 @@ public class Cart {
 	public int getQtyOrdered() {
 	    return qtyOrdered;
 	}
-
+	public void searchByID(int x) {
+		if (qtyOrdered==0) {
+			 System.out.println("Your cart is empty.");
+		     return;
+		}
+		int check=0;
+		for (int i = 0; i < itemsOrdered.size(); i++) {
+			if (itemsOrdered.get(i).getId()==x) {
+				check=1;
+				
+				System.out.println(itemsOrdered.get(i).toString());
+				break;
+			}
+		}
+		if (check==0) {
+			System.out.println("Not found");
+		}
+	}
+	public void searchByTitle(String s) {
+		if (qtyOrdered==0) {
+			 System.out.println("Your cart is empty.");
+		     return;
+		}
+		int check=0;
+		for (int i = 0; i < itemsOrdered.size(); i++) {
+			if (itemsOrdered.get(i).getTitle()==s) {
+				check=1;
+				
+				System.out.println(itemsOrdered.get(i).toString());
+				break;
+			}
+		}
+		if (check==0) {
+			System.out.println("Not found");
+		}
+	}
 }

@@ -7,7 +7,25 @@ public class DigitalVideoDisc {
 	private String category;
 	private String director;
 	private int length;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public boolean isMatch (String title) {
+		if (this.title==title) {
+			return true;
+		}
+		return false;
+	}
 	private float cost;
+	@Override
+	public String toString() {
+		return "DVD - [" + title + "] - [" + category + "] - [" + director + "] - ["
+                + length + "] : [" + cost + "] $";
+    
+	}
 	public DigitalVideoDisc(String title) {
 		super();
 		this.title = title;
