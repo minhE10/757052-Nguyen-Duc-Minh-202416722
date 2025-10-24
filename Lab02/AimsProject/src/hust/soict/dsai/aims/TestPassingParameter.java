@@ -43,7 +43,7 @@ public class TestPassingParameter {
         d1.setLength(d2.getLength());
         d1.setCost(d2.getCost());
 
-        
+            
         d2.setTitle(tmpTitle);
         d2.setCategory(tmpCategory);
         d2.setDirector(tmpDirector);
