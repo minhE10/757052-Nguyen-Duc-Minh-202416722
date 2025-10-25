@@ -1,8 +1,6 @@
-package hust.soict.dsai.aims.store;
+package hust.soict.dsai.aims;
 
 import java.util.ArrayList;
-
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class Store {
 	private ArrayList<DigitalVideoDisc>  itemsInStore  = new ArrayList<>();
