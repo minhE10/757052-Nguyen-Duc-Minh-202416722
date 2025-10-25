@@ -1,0 +1,13 @@
+- Question: Is JAVA a Pass by Value or a Pass by Reference programming language? 
+
+Java is a pass by Value language. when a method is passed a primitive-data-type parameter, it create an copy the variable with the same value and do operations on it. When a method is passed a non-primitive one, it copy the direction of the variable in the memory
+
+●After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
+
+as the swap function swap 2 copy of int variable, so it just swap 2 copy, not 2 original ones
+
+●After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
+
+this change the an attribute of an object with the same reference to the original one 
+
+

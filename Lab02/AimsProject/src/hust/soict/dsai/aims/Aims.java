@@ -21,18 +21,40 @@ public class Aims {
 
     public static void handleChoice(int choice) {
         switch (choice) {
-            case 1:
-                displayStore();
-                System.out.print("Enter the number of the DVD to add to cart: ");
-                int addChoice = scanner.nextInt();
+        case 1:
+            displayStore();
+            System.out.print("Enter the numbers of the DVDs to add to cart : ");
+            scanner.nextLine();
+
+            String line = scanner.nextLine();
+            if (line.trim().isEmpty()) {
+                System.out.println("No input entered.");
+                break;
+            }
+
+            String[] parts = line.trim().split("\\s+");
+            int[] a = new int[parts.length];
+
+            for (int i = 0; i < parts.length; i++) {
+                try {
+                    a[i] = Integer.parseInt(parts[i]);
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input: " + parts[i]);
+                    a[i] = -1;
+                }
+            }
+
+            for (int addChoice : a) {
                 if (addChoice > 0 && addChoice <= store.size()) {
                     cart.addDigitalVideoDisc(store.get(addChoice - 1));
-                } else {
-                    System.out.println("Invalid number.");
+                } else if (addChoice != -1) {
+                    System.out.println("Invalid number: " + addChoice);
                 }
-                break;
+            }
+            break;
+
             case 2:
-                cart.printCart();
+                cart.print();
                 if (cart.getQtyOrdered() > 0) { 
                     System.out.print("Enter the number of the DVD to remove from your cart: ");
                     int removeChoice = scanner.nextInt();
@@ -40,7 +62,7 @@ public class Aims {
                 }
                 break;
             case 3:
-                cart.printCart();
+                cart.print();
                 break;
             case 4:
                 System.out.println("Exiting the application.");

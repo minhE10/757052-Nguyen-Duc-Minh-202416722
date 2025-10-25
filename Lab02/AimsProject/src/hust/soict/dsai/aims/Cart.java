@@ -27,6 +27,31 @@ public class Cart {
 			System.out.println("Added: "+ dvd.getTitle());
 		}
 	}
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1 , DigitalVideoDisc dvd2) {
+		if (checkcart()=="Cart is full") {
+			System.out.println("Cannot add more DVD");
+		}
+		else {
+			itemsOrdered.add(dvd1);
+			qtyOrdered++;
+			System.out.println("Added: "+ dvd1.getTitle());
+			itemsOrdered.add(dvd2);
+			qtyOrdered++;
+			System.out.println("Added: "+ dvd2.getTitle());
+		}
+	}
+	public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
+		if (checkcart()=="Cart is full") {
+			System.out.println("Cannot add more DVD");
+		}
+		else {
+			for (DigitalVideoDisc dvd :dvdList) {
+				itemsOrdered.add(dvd);
+				qtyOrdered++;
+				System.out.println("Added: "+ dvd.getTitle());
+			}
+		}
+	}
 	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
 		if (checkcart()=="Cart is empty") {
 			System.out.println("Cannot remove dvd");
@@ -44,12 +69,13 @@ public class Cart {
 		}
 		return total;
 	}
-	public void printCart() {
+	
+	public void print() {
 	    if (qtyOrdered == 0) {
 	        System.out.println("Your cart is empty.");
 	        return;
 	    }
-	    System.out.println("\n***** CART CONTENT *****");
+	    System.out.println("\n***********CART**********");
 	    for (int i = 0; i < itemsOrdered.size(); i++) {
 	        DigitalVideoDisc dvd = itemsOrdered.get(i);
 	        System.out.println((i + 1) + ". " + dvd.getTitle() 
@@ -77,5 +103,41 @@ public class Cart {
 	public int getQtyOrdered() {
 	    return qtyOrdered;
 	}
-
+	public void searchByID(int x) {
+		if (qtyOrdered==0) {
+			 System.out.println("Your cart is empty.");
+		     return;
+		}
+		int check=0;
+		for (int i = 0; i < itemsOrdered.size(); i++) {
+			if (itemsOrdered.get(i).getId()==x) {
+				check=1;
+				
+				System.out.println(itemsOrdered.get(i).toString());
+				break;
+			}
+		}
+		if (check==0) {
+			System.out.println("Not found");
+		}
+	}
+	//already done search 
+	public void searchByTitle(String s) {
+		if (qtyOrdered==0) {
+			 System.out.println("Your cart is empty.");
+		     return;
+		}
+		int check=0;
+		for (int i = 0; i < itemsOrdered.size(); i++) {
+			if (itemsOrdered.get(i).getTitle()==s) {
+				check=1;
+				
+				System.out.println(itemsOrdered.get(i).toString());
+				break;
+			}
+		}
+		if (check==0) {
+			System.out.println("Not found");
+		}
+	}
 }
